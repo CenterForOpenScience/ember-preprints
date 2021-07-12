@@ -79,7 +79,7 @@
                                 {{t "content.private_preprint_warning" documentType=model.provider.documentType supportEmail='support@osf.io'}}
                             </div>
                         {{/if}}
-                        {{preprint-file-renderer provider=model.provider preprint=model primaryFile=primaryFile dualTrackNonContributors=(action 'dualTrackNonContributors')}}
+                        {{preprint-file-renderer provider=model.provider preprint=model primaryFile=primaryFile}}
                         <div>
                             <span>{{t dateLabel}}: {{moment-format relevantDate "MMMM DD, YYYY"}}</span>
                             {{#if (not isWithdrawn)}}

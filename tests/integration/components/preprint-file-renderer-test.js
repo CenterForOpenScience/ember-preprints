@@ -60,13 +60,13 @@ moduleForComponent('preprint-file-renderer', 'Integration | Component | preprint
             provider: 'osf',
             id: 890,
         });
-        const dualTrackNonContributors = () => {};
+        const trackNonContributors = () => {};
         this.register('service:theme', themeStub);
         this.inject.service('theme');
         this.set('preprint', preprint);
         this.set('versions', fileVersions);
         this.set('primaryFile', file);
-        this.set('dualTrackNonContributors', dualTrackNonContributors);
+        this.set('trackNonContributors', trackNonContributors);
     },
 });
 
@@ -76,7 +76,7 @@ test('it renders', function(assert) {
         preprint=preprint
         primaryFile=primaryFile
         versions=versions
-        dualTrackNonContributors=(action dualTrackNonContributors)
+        trackNonContributors=(action trackNonContributors)
     }}`);
     assert.equal(this.$('.osf-box').length, 0);
     assert.equal(this.$('#selectedFileName').text(), 'test file');
@@ -92,7 +92,7 @@ test('primary file versions exist', function(assert) {
         preprint=preprint
         primaryFile=primaryFile
         versions=versions
-        dualTrackNonContributors=(action dualTrackNonContributors)
+        trackNonContributors=(action trackNonContributors)
     }}`);
     assert.ok($('a.dropdown-toggle')[0].innerText.includes('Download previous versions'));
     assert.ok($('a.dropdown-item')[0].innerText.includes('Version 2'));
@@ -105,7 +105,7 @@ test('primary file one version', function(assert) {
         preprint=preprint
         primaryFile=primaryFile
         versions=versions
-        dualTrackNonContributors=(action dualTrackNonContributors)
+        trackNonContributors=(action trackNonContributors)
     }}`);
     assert.notOk($('a.dropdown-toggle')[0]);
 });
